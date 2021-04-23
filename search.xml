@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title><![CDATA[My first Post]]></title>
-    <url>%2Fblog%2F2018%2F07%2F17%2Fmy-first-post%2F</url>
-    <content type="text"><![CDATA[update]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2Fblog%2F2018%2F07%2F17%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[IntroduceThe sky is as high as the birds can fly !]]></content>
-  </entry>
+<search> 
+  
+    
+    <entry>
+      <title>My first Post</title>
+      <link href="/blog/2018/07/17/my-first-post/"/>
+      <url>/blog/2018/07/17/my-first-post/</url>
+      <content type="html"><![CDATA[<h3 id="update"><a href="#update" class="headerlink" title="update"></a>update</h3>]]></content>
+      
+      
+    </entry>
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/blog/2018/07/17/hello-world/"/>
+      <url>/blog/2018/07/17/hello-world/</url>
+      <content type="html"><![CDATA[<h2 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h2><p>The sky is as high as the birds can fly !</p>]]></content>
+      
+      
+    </entry>
+    
+  
+  
 </search>
