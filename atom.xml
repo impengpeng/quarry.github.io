@@ -5,9 +5,9 @@
   
   <link href="/blog/atom.xml" rel="self"/>
   
-  <link href="https://impengpeng.github.io/blog/"/>
+  <link href="https://impengpeng.github.io/"/>
   <updated>2021-04-23T06:43:38.660Z</updated>
-  <id>https://impengpeng.github.io/blog/</id>
+  <id>https://impengpeng.github.io/</id>
   
   <author>
     <name>Quarry</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>My first Post</title>
-    <link href="https://impengpeng.github.io/blog/2018/07/17/my-first-post/"/>
-    <id>https://impengpeng.github.io/blog/2018/07/17/my-first-post/</id>
+    <link href="https://impengpeng.github.io/2018/07/17/my-first-post/"/>
+    <id>https://impengpeng.github.io/2018/07/17/my-first-post/</id>
     <published>2018-07-17T08:30:54.000Z</published>
     <updated>2021-04-23T06:43:38.660Z</updated>
     
@@ -39,8 +39,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://impengpeng.github.io/blog/2018/07/17/hello-world/"/>
-    <id>https://impengpeng.github.io/blog/2018/07/17/hello-world/</id>
+    <link href="https://impengpeng.github.io/2018/07/17/hello-world/"/>
+    <id>https://impengpeng.github.io/2018/07/17/hello-world/</id>
     <published>2018-07-17T07:59:09.708Z</published>
     <updated>2021-04-23T09:37:00.745Z</updated>
     
