@@ -1,0 +1,57 @@
+<hr>
+<h2 id="title-在-GitHub-Pages-上部署-Hexo"><a href="#title-在-GitHub-Pages-上部署-Hexo" class="headerlink" title="title: 在 GitHub Pages 上部署 Hexo"></a>title: 在 GitHub Pages 上部署 Hexo</h2><p>本文將使用 <a href="https://travis-ci.com/">Travis CI</a> 部署 Github Pages 。若要免費使用 Travis CI 請將儲存庫 (repo) 的主分支 (Master) 設定至公開狀態 (public) 。否則請閱覽本文的 <a href="#Private-repository">Private repository</a> 部分或採用其他儲存庫服務。</p>
+<ol>
+<li>新增名為 <code>&lt;GitHub 用戶名&gt;.github.io</code> 的儲存庫。如果你之前上載了 Hexo 到其他儲存庫，請重新命名該資料庫。</li>
+<li>把 Hexo 檔案推播 (push) 到你的資料庫。檢查 <code>.gitignore</code> 裡已加上 <code>public</code> 一行。在預設狀態中， <code>public/</code> 不應會被上載到資料庫，你的 GitHub Pages 資料庫除了 <a href="https://github.com/hexojs/hexo-starter">範例</a> 中的 <code>.gitmodules</code> 外，應該大致上與範例相同。</li>
+<li>新增 <a href="https://github.com/marketplace/travis-ci">Travis CI</a> 到 GitHub 帳戶中。</li>
+<li>前往 GitHub 的 <a href="https://github.com/settings/installations">Applications settings</a> 設定 Travis CI ，使 Travis CI 擁有有足夠權限存取您的 GitHub Pages 儲存庫。</li>
+<li>系統會重定向 Travis 頁面。否則，請 <a href="https://travis-ci.com/">按此</a> 手動前往。</li>
+<li>在瀏覽器添加新頁面，<a href="https://github.com/settings/tokens">按此</a>允許資料庫的權限 generate (產生)一個新的 Token ，將請該 Token 數值記下。</li>
+<li>前往 Travis CI 的 Github Pages 資料庫目錄，在設定頁面中的 <strong>Environment Variables</strong> 下，建立 <code>GH_TOKEN</code> 一列，把剛才記下的 <strong>Token</strong> 填在 <strong>Value</strong> 中。最後點選 <strong>Add</strong> 儲存。</li>
+<li>在儲存庫目錄中新增 <code>Travis.yml</code> :</li>
+</ol>
+<pre><code class="yml"><span class="attr">sudo:</span> <span class="literal">false</span>
+<span class="attr">language:</span> <span class="string">node_js</span>
+<span class="attr">node_js:</span>
+<span class="bullet">  -</span> <span class="number">10</span> <span class="comment"># use nodejs v10 LTS</span>
+<span class="attr">cache:</span> <span class="string">npm</span>
+<span class="attr">branches:</span>
+<span class="attr">  only:</span>
+<span class="bullet">    -</span> <span class="string">master</span> <span class="comment"># build master branch only</span>
+<span class="attr">script:</span>
+<span class="bullet">  -</span> <span class="string">hexo</span> <span class="string">generate</span> <span class="comment"># generate static files</span>
+<span class="attr">deploy:</span>
+<span class="attr">  provider:</span> <span class="string">pages</span>
+<span class="attr">  skip-cleanup:</span> <span class="literal">true</span>
+<span class="attr">  github-token:</span> <span class="string">$GH_TOKEN</span>
+<span class="attr">  keep-history:</span> <span class="literal">true</span>
+<span class="attr">  on:</span>
+<span class="attr">    branch:</span> <span class="string">master</span>
+<span class="attr">  local-dir:</span> <span class="string">public</span>
+</code></pre>
+<ol start="9">
+<li>Travis CI 完成部署後，新的文件會被推播到 GitHub Pages 儲存庫的 gh-pages 分支。</li>
+<li>在 GitHub Pages 儲存庫設定頁，把 <code>gh-pages</code> 更改至 Source 。</li>
+<li>瀏覽 <code>&lt;GitHub 用戶名&gt;.github.io</code> 檢查你的網站能否運作。</li>
+</ol>
+<h2 id="專案頁面"><a href="#專案頁面" class="headerlink" title="專案頁面"></a>專案頁面</h2><p>如果妳更希望妳的站點部署在 <code>&lt;妳的 GitHub 用戶名&gt;.github.io</code> 的子目錄中，妳的 repository 需要直接命名為子目錄的名字，這樣妳的站點可以通過 <code>https://&lt;妳的 GitHub 用戶名&gt;.github.io/&lt;repository 的名字&gt;</code> 訪問。妳需要檢查妳的 Hexo 配置文件，將 <code>url</code> 修改為 <code>https://&lt;妳的 GitHub 用戶名&gt;.github.io/&lt;repository 的名字&gt;</code>、將 <code>root</code> 的值修改為 <code>/&lt;repository 的名字&gt;/</code></p>
+<h2 id="私人儲存庫"><a href="#私人儲存庫" class="headerlink" title="私人儲存庫"></a>私人儲存庫</h2><p>以下教學改編自 <a href="/docs/one-command-deployment">一鍵部署</a> .</p>
+<ol>
+<li>安裝 <a href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a>.</li>
+<li><p>清空 <code>_config.yml</code> 的現有資料，並新增以下組態:</p>
+<pre><code class="yml"><span class="attr">deploy:</span>
+<span class="attr"> type:</span> <span class="string">git</span>
+<span class="attr"> repo:</span> <span class="attr">https://github.com/&lt;username&gt;/&lt;project&gt;</span>
+ <span class="comment"># example, https://github.com/hexojs/hexojs.github.io</span>
+<span class="attr"> branch:</span> <span class="string">gh-pages</span>
+</code></pre>
+</li>
+<li><p>執行 <code>hexo clean &amp;&amp; hexo deploy</code> 。</p>
+</li>
+<li>瀏覽 <code>&lt;GitHub 用戶名&gt;.github.io</code> 檢查你的網站能否運作。</li>
+</ol>
+<p>{% note info Windows 用戶 %}<br><a href="https://github.com/hexojs/awesome-hexo">Awesome Hexo</a> 中收錄了更多有關在 GitHub Pages 上部署 Hexo ，你也可透過搜尋引擎了解更多。<br>歡迎更多有誌之士前來改善 Hexo 文檔，不勝感激。<br>{% endnote %}</p>
+<h2 id="參考鏈接"><a href="#參考鏈接" class="headerlink" title="參考鏈接"></a>參考鏈接</h2><ul>
+<li><a href="https://help.github.com/categories/github-pages-basics/">GitHub Pages 使用文檔</a></li>
+<li><a href="https://docs.travis-ci.com/user/tutorial/">Travis CI 使用文檔</a></li>
+</ul>

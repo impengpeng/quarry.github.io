@@ -1,0 +1,105 @@
+<hr>
+<h2 id="title-GitHub-Pages"><a href="#title-GitHub-Pages" class="headerlink" title="title: GitHub Pages"></a>title: GitHub Pages</h2><p>In this tutorial, we use <a href="https://docs.github.com/en/actions">GitHub Actions</a> to deploy GitHub Pages. It works in both public and private repository. Skip to the <a href="#One-command-deployment">One-command deployment</a> section if you prefer not to upload your source folder to GitHub.</p>
+<ol>
+<li>Create a repo named <b><em>username</em>.github.io</b>, where username is your username on GitHub. If you have already uploaded to other repo, rename the repo instead.</li>
+<li>Add the following <em>highlighted</em> lines to <code>package.json</code>: (skip this step if there are existing lines)</li>
+</ol>
+<p>{% codeblock lang:json mark:2-4 %}<br>{<br>  “scripts”: {<br>    “build”: “hexo generate”<br>  },<br>  “hexo”: {<br>    “version”: “5.0.0”<br>  },<br>  “dependencies”: {<br>    “hexo”: “^5.0.0”,<br>    …<br>  }<br>}<br>{% endcodeblock %}</p>
+<ol start="3">
+<li>Push the files of your Hexo folder to the <strong><code>source</code> branch</strong> of your repository. The <code>public/</code> folder is not (and should not be) uploaded by default, make sure the <code>.gitignore</code> file contains <code>public/</code> line. The folder structure should be roughly similar to <a href="https://github.com/hexojs/hexo-starter">this repo</a>, without the <code>.gitmodules</code> file.<ul>
+<li>To push <code>source</code> to GitHub:<pre><code>$ git push origin source
+</code></pre></li>
+</ul>
+</li>
+<li>Add <code>.github/workflows/pages.yml</code> file to your repo with the following content:</li>
+</ol>
+<p><code>`</code>yml .github/workflows/pages.yml<br>name: Pages</p>
+<p>on:<br>  push:<br>    branches:</p>
+<pre><code>- source  # default branch
+</code></pre><p>jobs:<br>  pages:<br>    runs-on: ubuntu-latest<br>    steps:</p>
+<pre><code>- uses: actions/checkout@v2
+- name: Use Node.js 12.x
+  uses: actions/setup-node@v1
+  with:
+    node-version: &apos;12.x&apos;
+- name: Cache NPM dependencies
+  uses: actions/cache@v2
+  with:
+    path: node_modules
+    key: ${{ runner.OS }}-npm-cache
+    restore-keys: |
+      ${{ runner.OS }}-npm-cache
+- name: Install Dependencies
+  run: npm install
+- name: Build
+  run: npm run build
+- name: Deploy
+  uses: peaceiris/actions-gh-pages@v3
+  with:
+    github_token: ${{ secrets.GITHUB_TOKEN }}
+    publish_dir: ./public
+    publish_branch: master  # deploying branch
+</code></pre><pre><code>
+5. Once the deployment is finished, the generated pages can be found in the `master` branch of your repository
+6. In your GitHub repo&apos;s setting, navigate to &quot;GitHub Pages&quot; section and change Source to **master branch**.
+7. Check the webpage at *username*.github.io.
+
+Note - if you specify a custom domain name with a `CNAME`, you need to add the `CNAME` file to the `source/` folder.
+
+## Project page
+
+If you prefer to have a project page on GitHub:
+
+1. Navigate to your repo on GitHub. Go to the **Settings** tab. Change the **Repository name** so your blog is available at &lt;b&gt;username.github.io/*repository*&lt;/b&gt;,  **repository** can be any name, like *blog* or *hexo*.
+2. Edit your **_config.yml**, change the `root:` value to the `/&lt;repository&gt;/` (must starts and ends with a slash, without the brackets).
+3. Modify the following lines in `.github/workflows/pages.yml`:
+
+```diff .github/workflows/pages.yml
+name: Pages
+
+on:
+  push:
+    branches:
+-      - source  # default branch
++      - master
+
+jobs:
+  pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+-          publish_branch: master  # deploying branch
++          publish_branch: gh-pages
+</code></pre><ol start="4">
+<li>Commit and push to <strong><code>master</code> branch</strong>.<ul>
+<li>To push <code>master</code> branch to GitHub:<pre><code>$ git push origin master
+</code></pre></li>
+</ul>
+</li>
+<li>Once the deployment is finished, the generated pages can be found in the <code>gh-pages</code> branch of your repository</li>
+<li>In your GitHub repo’s setting, navigate to “GitHub Pages” section and change Source to <strong>gh-pages branch</strong>.</li>
+</ol>
+<h2 id="One-command-deployment"><a href="#One-command-deployment" class="headerlink" title="One-command deployment"></a>One-command deployment</h2><p>The following instruction is adapted from <a href="/docs/one-command-deployment">one-command deployment</a> page.</p>
+<ol>
+<li>Install <a href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a>.</li>
+<li><p>Add the following configurations to <strong>_config.yml</strong>, (remove existing lines if any)</p>
+<pre><code class="yml"><span class="attr">deploy:</span>
+<span class="attr"> type:</span> <span class="string">git</span>
+<span class="attr"> repo:</span> <span class="attr">https://github.com/&lt;username&gt;/&lt;project&gt;</span>
+ <span class="comment"># example, https://github.com/hexojs/hexojs.github.io</span>
+<span class="attr"> branch:</span> <span class="string">gh-pages</span>
+</code></pre>
+</li>
+<li><p>Run <code>hexo clean &amp;&amp; hexo deploy</code>.</p>
+</li>
+<li>Check the webpage at <em>username</em>.github.io.</li>
+</ol>
+<h2 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h2><ul>
+<li><a href="https://help.github.com/categories/github-pages-basics/">GitHub Pages</a></li>
+<li><a href="https://docs.travis-ci.com/user/tutorial/">Travis CI Docs</a></li>
+<li><a href="https://github.com/marketplace/actions/github-pages-action">peaceiris/actions-gh-pages</a></li>
+</ul>
