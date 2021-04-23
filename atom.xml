@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Quarry | 骆驼飞翔</title>
+  <title>Quarry | 每一个不曾起舞的日子，都是对生命的辜负。</title>
   
-  <subtitle>每一个不曾起舞的日子，都是对生命的辜负。</subtitle>
+  
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://impengpeng.github.io/blog/"/>
@@ -10,7 +10,7 @@
   <id>https://impengpeng.github.io/blog/</id>
   
   <author>
-    <name>impengpeng</name>
+    <name>Quarry</name>
     
   </author>
   
