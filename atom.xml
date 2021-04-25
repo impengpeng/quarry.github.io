@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>天高任鸟飞</title>
+  <title>Quarry-天高任鸟飞</title>
   
   <subtitle>The sky is as high as the birds can fly</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://impengpeng.github.io/"/>
-  <updated>2021-04-23T06:43:38.660Z</updated>
+  <updated>2021-04-25T17:00:34.935Z</updated>
   <id>https://impengpeng.github.io/</id>
   
   <author>
@@ -17,20 +17,18 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>My first Post</title>
-    <link href="https://impengpeng.github.io/2018/07/17/my-first-post/"/>
-    <id>https://impengpeng.github.io/2018/07/17/my-first-post/</id>
-    <published>2018-07-17T08:30:54.000Z</published>
-    <updated>2021-04-23T06:43:38.660Z</updated>
+    <title>写在10年之际</title>
+    <link href="https://impengpeng.github.io/2021/04/26/%E5%86%99%E5%9C%A810%E5%B9%B4%E4%B9%8B%E9%99%85/"/>
+    <id>https://impengpeng.github.io/2021/04/26/写在10年之际/</id>
+    <published>2021-04-25T16:08:00.000Z</published>
+    <updated>2021-04-25T17:00:34.935Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="update"><a href="#update" class="headerlink" title="update"></a>update</h3>]]></content>
+    <content type="html"><![CDATA[<p>时间过的很快，一转眼就10年了。<br>这10年待下来，说容易也不容易。</p><p>容易是说，这么多年一路过来，工作上的事情确实非常忙碌，时光就像列车两边后退的风景，一瞬间就远去了，来不及细看。<br>不容易是说，这么多年跟着公司发展过来，一路是小跑着，一路咬牙坚持着，稍一放松，可能就跟不上了，就掉队了，压力会很大。<br><a id="more"></a></p><p>随着时间推移，我越来越害怕年陈，就像随着年龄增长，越来越害怕过生日一样，因为在这个时候回忆过去往往比较简单，美好的、伤心的、热烈的、平淡的点滴，不管怎么样都已经远去了，最怕的是面向未来，未知的、不确定的、该何去何从的茫然。尤其是人到中年后，感觉很多时光都已经开始掐指倒数了。</p><p>其实这10年的时间，我自己有很多难忘的经历，做过业务线、也做过中后台，做过自营业务、也做过他营业务。在金融技术部3年做过备付金系统、金融交换中心，后来转入大安全，做过3年安全服务化接入和UCT组件化，随后2年风控+对外输出跑过客户、银行和监管部门，最近2年在国际负责过站点、也做过赋能，中台晃了半年又回国际做跨境交易和商户风控。虽然这期间有很多变化，但是这些变化也让自己面对很多不确定的情况有了更强大的抵御力，有了敢于面向不同挑战的精气神，有了面对很对困难时的坚持和韧性。</p><p>回想当时从学校毕业刚进入公司的时候，公司给我的感觉就是从大学毕业后进入了另一所大学，周围的同事都非常亲切，相处起来就像是同学一样，大家都非常优秀，能从每个人身上都学习到很多，整个公司从上到下都流露出理想主义的色彩，至今想想我之所以加入这家公司，就是被这一份简单和纯粹的感觉吸引到了。</p><p>所以，简单总结这么多年的心得就是三点：<br>一是心怀理想，不论处于什么阶段，自己还是要排除杂念坚持原来的样子，要始终有为之努力的目标和理想。<br>二是努力坚持，不积跬步无以至千里，走的快慢不重要，自律和坚持是最难的，对抗熵增成为更好的自己。<br>三是拥抱变化，勇于打破平衡态和走出舒适圈，坦然接受生活和生命真实的样子，有一颗勇敢的心。</p><p>接下去的日子，我希望我还能像阿甘一样继续奔跑下去。</p><p>今天正好是4月25日，在10周年之际，我有了将我过去这一段历程用文字总结写下来的想法，才有这一系列的文章。</p><p>杭州<br>4月26日</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h3 id=&quot;update&quot;&gt;&lt;a href=&quot;#update&quot; class=&quot;headerlink&quot; title=&quot;update&quot;&gt;&lt;/a&gt;update&lt;/h3&gt;
-      
+      &lt;p&gt;时间过的很快，一转眼就10年了。&lt;br&gt;这10年待下来，说容易也不容易。&lt;/p&gt;
+&lt;p&gt;容易是说，这么多年一路过来，工作上的事情确实非常忙碌，时光就像列车两边后退的风景，一瞬间就远去了，来不及细看。&lt;br&gt;不容易是说，这么多年跟着公司发展过来，一路是小跑着，一路咬牙坚持着，稍一放松，可能就跟不上了，就掉队了，压力会很大。&lt;br&gt;
     
     </summary>
     
@@ -39,19 +37,16 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://impengpeng.github.io/2018/07/17/hello-world/"/>
-    <id>https://impengpeng.github.io/2018/07/17/hello-world/</id>
-    <published>2018-07-17T07:59:09.708Z</published>
-    <updated>2021-04-23T09:37:00.745Z</updated>
+    <link href="https://impengpeng.github.io/2021/04/25/hello-world/"/>
+    <id>https://impengpeng.github.io/2021/04/25/hello-world/</id>
+    <published>2021-04-25T12:08:00.000Z</published>
+    <updated>2021-04-25T17:02:01.588Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h2><p>The sky is as high as the birds can fly !</p>]]></content>
+    <content type="html"><![CDATA[<p>This is my hello to everyone.<br><a id="more"></a></p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h2 id=&quot;Introduce&quot;&gt;&lt;a href=&quot;#Introduce&quot; class=&quot;headerlink&quot; title=&quot;Introduce&quot;&gt;&lt;/a&gt;Introduce&lt;/h2&gt;&lt;p&gt;The sky is as high as the birds can fly !&lt;
-      
+      &lt;p&gt;This is my hello to everyone.&lt;br&gt;
     
     </summary>
     
